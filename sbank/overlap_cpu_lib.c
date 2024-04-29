@@ -23,6 +23,8 @@
 #include <sys/types.h>
 
 /* ---------------- LAL STUFF NEEDED ----------------- */
+int XLALPrintError(const char *fmt, ...);
+
 typedef struct tagCOMPLEX8Vector {
      uint32_t length; /**< Number of elements in array. */
      float complex *data; /**< Pointer to the data array. */
@@ -34,6 +36,8 @@ void XLALDestroyCOMPLEX8Vector ( COMPLEX8Vector * vector );
 typedef struct tagCOMPLEX8FFTPlan COMPLEX8FFTPlan;
 
 COMPLEX8FFTPlan * XLALCreateReverseCOMPLEX8FFTPlan( uint32_t size, int measurelvl );
+
+int XLALCOMPLEX8VectorFFT (COMPLEX8Vector * restrict output, const COMPLEX8Vector * restrict input, const COMPLEX8FFTPlan *plan);
 
 void XLALDestroyCOMPLEX8FFTPlan( COMPLEX8FFTPlan *plan );
 
